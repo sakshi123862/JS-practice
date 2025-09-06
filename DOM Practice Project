@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice of DOM</title>
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cornflowerblue;
+}
+
+#card {
+  height: 450px;
+  width: 310px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+}
+
+#card img {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+#card h1 {
+  font-size: 25px;
+  margin-top: 10px;
+  font-weight: 800;  
+}
+
+#card h5 {
+  font-size: 20px;
+  margin: 20px;
+  color: red; 
+}
+
+
+#card button {
+  background-color: cadetblue;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  margin: 5px;
+  cursor: pointer;
+}
+
+</style>
+  
+</head>
+<body>
+<div id="card">
+  <img src="https://i2.pickpik.com/photos/909/59/643/girl-little-child-cute-preview.jpg" height="50%" width="100%" alt="Girl-image">
+  <h1>Angel Priya</h1>
+  <h5>Stranger</h5>
+
+    <button id="add">Add Friend</button>
+
+</div>
+<script>
+var istatus = document.querySelector("h5")
+var btn = document.querySelector("#add")
+
+var check  = 0
+
+btn.addEventListener("click", function() {
+  if(check == 0) {
+    istatus.innerHTML = "Friends"
+    istatus.style.color = "green"
+    btn.innerHTML = "Remove Friend"
+    
+    check = 1
+  } else {
+    istatus.innerHTML = "Stranger"
+    istatus.style.color = "red"
+    btn.innerHTML = "Add Friend"
+    check = 0
+  }
+ 
+})
+
+</script>
+  
+</body>
+</html>
