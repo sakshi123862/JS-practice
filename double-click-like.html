@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Pop Animation</title>
+  <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    html, body {
+      height: 100%; 
+      margin: 0;
+    }
+
+    
+    #container {
+      height: 400px;
+      width: 350px;
+      background-color: white;
+     border-radius: 10px; 
+      overflow: hidden;
+      position: relative;
+      transition: transform ease 0.5s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      align-items: center;
+    }
+
+    #container img {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      position: relative;
+
+    }
+
+
+    #container i {
+   color: red;
+ font-size: 75px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    
+  </style>
+</head>
+  
+<body>
+  <div id="container">
+    <img src="https://w0.peakpx.com/wallpaper/362/897/HD-wallpaper-anime-boy-aesthetic-aesthetic-anime-aesthetic-anime-boy-anime-aesthetic-anime-boy-cute-cute-anime-boy-sad-anime-boy-thumbnail.jpg" alt="Anime Boy" >
+
+      <i class="ri-heart-fill"></i>
+
+      <script>
+        var con = document.querySelector("#container");
+        var love = document.querySelector("i");
+
+        con.addEventListener("dblclick", function() {
+          love.style.transform = "translate(-50%, -50%) scale(1)";
+          love.style.opacity = 0.8;
+
+          setTimeout(function(){
+            love.style.transform = "translate(-50%, -50%) scale(0)";
+            love.style.opacity = 0;
+          }, 800);
+        });
+      </script>
+
+  
+    
+  </div>
+</body>
+</html>
