@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Cursor Effect</title>
+  <style>
+
+ * {
+  margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+
+}
+   
+    html,body {
+      height: 100%;
+   width: 100%;
+   color: white;
+    }
+
+    
+      #main {
+      height: 100%;
+      width: 100%;
+        background-color: #111;
+        position:  relative;
+    } 
+
+      .elem {
+        height: 120px;
+        width: 100%;
+        border-bottom: 2px solid #fff;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        
+      }
+
+    .elem h1 {
+      font-size: 150px;
+      position: absolute;
+      z-index: 9;
+      mix-blend-mode: difference;
+   
+    }
+
+    .elem img {
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      position: fixed;   
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all linear 0.3s;
+      pointer-events: none; 
+    }
+
+  </style>
+</head>
+<body>
+  <div id="main">
+  <div class="elem">
+    
+    <h1>Think</h1> <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTQwMzIxMy1pbWFnZS1rd3Z5MDFybi1rd3Z5bzVwai5qcGc.jpg" alt="sea" height="150px" width="150px">
+  </div>
+    
+  <div class="elem">
+    <h1>Create</h1> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2wzI2jo9xYq6SUj0dFo0r34jjtYlgjc8X6A&s" alt= "flower" height="150px" width="150px">
+  </div>
+  <div class="elem">
+    <h1>Test</h1> <img src="https://live.staticflickr.com/7358/15868152963_d4946971d2_b.jpg" alt="mountain" height="150px" width="150px">
+  </div>
+  <div class="elem">
+    <h1>Grow</h1> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvre65FwEfhWGwhnO5Ey7c7kQjxIsoh97g2A&s" alt="butterfly" height="150px" width="150px">
+    
+  </div>
+    
+  </div>
+
+  <script>
+    var elem = document.querySelectorAll(".elem");
+
+    elem.forEach(function(val) {
+      
+       let img = val.children[1];
+      
+   val.addEventListener("mouseenter", function () {
+        img.style.opacity = 1;
+        
+      });
+
+      val.addEventListener("mouseleave", function() {
+        img.style.opacity = 0;
+                        
+      });
+      val.addEventListener("mousemove", function(e) {
+         img.style.left = e.clientX + "px";
+          img.style.top = e.clientY + "px";
+        
+    });
+      
+    });
+   
+  </script>
+</body>
+</html>
