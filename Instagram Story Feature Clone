@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Story Feature Clone</title>
+
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        background-color: rgb(179, 231, 231);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #card {
+        height: 420px;
+        width: 270px;
+        background-color: white;
+        border-radius: 15px;
+        border: 3px solid black;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #storya {
+        height: 120px;
+        width: 100%;
+        border-bottom: 1px solid #dadadada;
+        padding: 15px;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      #storya::-webkit-scrollbar {
+        display: none;
+      }
+
+      .story {
+        border: 3px solid rgb(230, 14, 14);
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .story img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      #full-screen {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <div id="full-screen"></div>
+      <div id="storya"></div>
+    </div>
+
+    <script>
+      var arr = [
+        {
+          dp: "https://media.easy-peasy.ai/27feb2bb-aeb4-4a83-9fb6-8f3f2a15885e/555bc082-cfe1-4c29-ae88-ae624b58ed8b.png",
+          story:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCL6orf9_4VBeQFZsFTK5FqAjt-2fOVq9SUQ&s",
+        },
+        {
+          dp: "https://wallpapersok.com/images/high/winking-cute-girl-shen9t2b3lrcv8he.jpg",
+          story:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzstEffwW_QjcKxtJD9UnsvyLctxeGYgPnw&s",
+        },
+        {
+          dp: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6cEw4T14lUFd9iut7JszP8Vi2YEsLkeLUPQ&s",
+          story:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9oInSaE78UtQMNQu9wV3c-WxpXgz-cPFEpg&s",
+        },
+        {
+          dp: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS10HZXQURGHP3Xh9up4517xnnHTf30g09bag&s",
+          story:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_LnKzDJxSMiHMbxhBPaE76WToT5bwDJG9FQ&s",
+        },
+      ];
+
+      var storya = document.querySelector("#storya");
+
+      var clutter = "";
+      arr.forEach(function (elem, idx) {
+        clutter += ` <div class="story">
+          <img id="${idx}" src="${elem.dp}" alt="" >
+        </div>`;
+      });
+
+      storya.innerHTML = clutter;
+
+      storya.addEventListener("click", function (dets) {
+        document.querySelector("#full-screen").style.display = "block";
+
+        document.querySelector("#full-screen").style.backgroundImage = `url(${
+          arr[dets.target.id].story
+        })`;
+
+        setTimeout(function () {
+          document.querySelector("#full-screen").style.display = "none";
+        }, 3000);
+      });
+
+    </script>
+  </body>
+</html>
