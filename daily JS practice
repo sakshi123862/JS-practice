@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>js practice</title>
+
+  </head>
+  <body>
+    <script>
+      function evenOrOdd(num) {
+        return num % 2 === 0 ? "Even" : "Odd";
+      }
+
+      console.log(evenOrOdd(10));
+      console.log(evenOrOdd(7));
+
+      function reverseString(str) {
+        return str.split("").reverse().join("");
+      }
+
+      console.log(reverseString("hello"));
+
+      function findLarge(arr) {
+        return Math.max(...arr);
+      }
+
+      console.log(findLarge([4, 9, 2, 1]));
+
+      function countVowels(str) {
+        const vowels = "aeiouAEIOU";
+        let count = 0;
+
+        for (let char of str) {
+          if (vowels.includes(char)) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      console.log(countVowels("javasvascript"));
+
+      function ispallindrome(str) {
+        const reversed = str.split("").reverse().join("");
+        return str === reversed;
+      }
+
+      console.log(ispallindrome("madam"));
+      console.log(ispallindrome("hello"));
+
+      function fizzBuzz() {
+        for (let i = 1; i <= 50; i++) {
+          if (i % 15 === 0) {
+            console.log("fizzBuzz");
+          } else if (i % 3 === 0) {
+            console.log("Fizz");
+          } else if (i % 5 === 0) {
+            console.log("Buzz");
+          } else {
+            console.log(i);
+          }
+        }
+      }
+
+      fizzBuzz();
+
+      for (let i = 1; i <= 5; i++) {
+        console.log(
+          (i % 3 === 0 ? "Fizz" : "") + (i % 5 === 0 ? "Buzz" : "") || i
+        );
+      }
+
+      function flattenArray(arr) {
+        return arr.flat(Infinity);
+      }
+      console.log(flattenArray([1, [2, [3, 4]], 5]));
+
+      function areAnagrams(str1, str2) {
+        const format = (s) => s.toLowerCase().split("").sort().join("");
+        return format(str1) === format(str2);
+      }
+
+      console.log(areAnagrams("listen", "silent"));
+      console.log(areAnagrams("hello", "world"));
+
+      function debounce(func, delay) {
+        let timer;
+        return function (...args) {
+          clearTimeout(timer);
+          timer = setTimeout(() => func.apply(this, args), delay);
+        };
+      }
+
+      const logMessage = debounce(() => console.log("Button clicked!"), 1000);
+
+      logMessage();
+      logMessage();
+      logMessage();
+      logMessage();
+
+
+      window.addEventListener("resize", logMessage);
+    </script>
+  </body>
+</html>
