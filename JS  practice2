@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS practice</title>
+  </head>
+  <body>
+    <h1>Hey this is JS</h1>
+    <script>
+      let sum = function (a, b) {
+        return a + b;
+      };
+
+      let diff = function (a, b) {
+        return a - b;
+      };
+
+      function operate(operationFunc, a, b) {
+        return operationFunc(a, b);
+      }
+      console.log(operate(sum, 2, 3));
+      console.log(operate(diff, 2, 3));
+
+      let a = 10;
+
+      function outer() {
+        a = 100;
+        function inner() {
+          console.log(a);
+        }
+
+        return inner;
+      }
+      let returnouter = outer();
+      a = 20;
+      a = 80;
+      console.log(returnouter);
+      returnouter();
+
+      function outer() {
+        let count = 0;
+        function inner() {
+          count++;
+          console.log(count);
+        }
+
+        return inner;
+      }
+
+      let increase = outer();
+
+      increase();
+      increase();
+      increase();
+      increase();
+    </script>
+  </body>
+</html>
